@@ -1,6 +1,7 @@
 import requests
+import simplejson
 from bs4 import BeautifulSoup
-import simplejson as json
+from datetime import datetime
 
 req = requests.get('https://republika.co.id/')
 
@@ -10,13 +11,13 @@ print("----Menampilkan Semua Teks Headline----")
 print("=======================================")
 
 
-file = open(r'C:\Users\Faizal\Documents\Pemrograman\Python\Projek1\headline.txt','w')
+file = open(r'https://aryadipura.github.io/WebScrap/headline.txt','w')
 for headline in obj.find_all('div',class_='bungkus_txt_headline_center'):
     file.write(headline.find('h2').text)
     file.write('\n')
 file.close()
 
-file = open(r'C:\Users\Faizal\Documents\Pemrograman\Python\Projek1\headline.txt','r')
+file = open(r'https://aryadipura.github.io/WebScrap/headline.txt','r')
 for f in file:
     print(f)
 file.close()
@@ -25,7 +26,7 @@ data = []
 
 # Extract Data From div class="bungkus_txt_headline"
 terkini = obj.find_all('div',class_='conten1')
-f=open(r'C:\Users\ASUS\Documents\Arya\File\Kelas\SMT 2\Proyek1\Tugas 6.2\headline.json','w')
+f=open(r'https://aryadipura.github.io/WebScrap/headline.json','w')
 for article in terkini:
     title = article.find('h2').text
     category = article.find('h1').text
